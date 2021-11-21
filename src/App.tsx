@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import "semantic-ui-css/semantic.min.css";
+import { Container } from "semantic-ui-react";
+import About from "./componenets/About/About";
+import Footer from "./componenets/Footer/Footer";
+import Gallery from "./componenets/Gallery/Gallery";
+import Header from "./componenets/Header/Header";
+import Home from "./componenets/Home/Home";
+import MenuPage from "./componenets/MenuPage/MenuPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Container style={{ marginTop: "7em" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route
+            path="/about"
+            element={
+              <About title="about us" imgUri="/assets/about/biftek.jpg" />
+            }
+          />
+          <Route path="/menu" element={<MenuPage />} />
+        </Routes>
+      </Container>
+      <Footer />
+    </>
   );
 }
 

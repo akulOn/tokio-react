@@ -1,0 +1,11 @@
+.ui.menu {
+  border-radius: 0%;
+}
+
+.ui.inverted.stackable {
+  margin: 0;
+}
+
+.ui.inverted.stackable.two {
+  margin-top: 1%;
+}
