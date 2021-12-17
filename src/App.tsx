@@ -18,12 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />
-          <Route
-            path="/about"
-            element={
-              <About title="about us" imgUri="/assets/about/biftek.jpg" />
-            }
-          />
+          <Route path="/about" element={<About />} />
           <Route path="/menu" element={<MenuPage />} />
         </Routes>
       </Container>

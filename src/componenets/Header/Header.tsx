@@ -14,7 +14,10 @@ export default function Header() {
     <Menu fixed="top" widths={5} inverted>
       <Container>
         <Menu.Item as={NavLink} to="/" header>
-          <Image src="/assets/logo.png" size="small" />
+          <Image
+            src={`${process.env.PUBLIC_URL}/assets/logo.png`}
+            size="small"
+          />
         </Menu.Item>
         <Menu.Item as={NavLink} to="/menu" content="Menu" />
         <Menu.Item as={NavLink} to="/gallery" name="Gallery" />

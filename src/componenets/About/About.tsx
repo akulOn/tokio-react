@@ -2,12 +2,7 @@ import React, { useState } from "react";
 import { Container, Grid, Image, Loader } from "semantic-ui-react";
 import "./about.css";
 
-interface Props {
-  title: string;
-  imgUri: string;
-}
-
-export default function About({ title, imgUri }: Props) {
+export default function About() {
   const [loaded, setLoaded] = useState(false);
 
   return (
@@ -17,13 +12,13 @@ export default function About({ title, imgUri }: Props) {
           <Image
             centered
             size="large"
-            src={imgUri}
-            alt={title}
+            src={`${process.env.PUBLIC_URL}/assets/about/biftek.jpg`}
+            alt="about us"
             onLoad={() => setLoaded(true)}
           />
           {loaded ? (
             <div className="centeredText">
-              <h1>{title}</h1>
+              <h1>about us</h1>
             </div>
           ) : (
             <Loader active inline="centered" />
@@ -70,7 +65,10 @@ export default function About({ title, imgUri }: Props) {
       </Grid.Row>
       <Grid.Row columns={2}>
         <Grid.Column>
-          <Image src="/assets/about/enterijer.jpg" size="massive" />
+          <Image
+            src={`${process.env.PUBLIC_URL}/assets/about/enterijer.jpg`}
+            size="massive"
+          />
         </Grid.Column>
         <Grid.Column>
           <Container as="h2" textAlign="center">

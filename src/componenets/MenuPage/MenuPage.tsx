@@ -258,7 +258,9 @@ export default function MenuPage() {
                 setOpen(true);
               }}
             >
-              <Image src="/assets/menu/recommendations/cevapi.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/cevapi.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Sarajevski cevapi combo</Card.Header>
                 <Card.Description>
@@ -274,7 +276,9 @@ export default function MenuPage() {
           </Grid.Column>
           <Grid.Column>
             <Card centered>
-              <Image src="/assets/menu/recommendations/teleceKrpice.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/teleceKrpice.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Telece krpice combo </Card.Header>
                 <Card.Description>
@@ -291,7 +295,9 @@ export default function MenuPage() {
           </Grid.Column>
           <Grid.Column>
             <Card centered>
-              <Image src="/assets/menu/recommendations/pileciFile.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/pileciFile.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Pileci file combo</Card.Header>
                 <Card.Description>
@@ -309,7 +315,9 @@ export default function MenuPage() {
         <Grid.Row>
           <Grid.Column>
             <Card centered>
-              <Image src="/assets/menu/recommendations/pljeskavica.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/pljeskavica.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Pljeskavica combo</Card.Header>
                 <Card.Description>
@@ -326,7 +334,9 @@ export default function MenuPage() {
           </Grid.Column>
           <Grid.Column>
             <Card centered>
-              <Image src="/assets/menu/recommendations/biftekAllaTokio.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/biftekAllaTokio.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Biftek a la Tokio</Card.Header>
                 <Card.Description>
@@ -342,7 +352,9 @@ export default function MenuPage() {
           </Grid.Column>
           <Grid.Column>
             <Card centered>
-              <Image src="/assets/menu/recommendations/srpskaKobasica.jpg" />
+              <Image
+                src={`${process.env.PUBLIC_URL}/assets/menu/recommendations/srpskaKobasica.jpg`}
+              />
               <Card.Content>
                 <Card.Header>Srpska kobasica</Card.Header>
                 <Card.Description>
