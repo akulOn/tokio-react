@@ -40,13 +40,11 @@ export default function About({ title, imgUri }: Props) {
           </Container>
           <Container as="p" textAlign="center">
             "Ideja je bila da otvorimo mesto gde će moći da se pojede izvorni
-            sarajevski ćevap, koji se pravi od čistog junećeg mesa i to u
+            sarajevski ćevap, koji se pravi od čistog junećeg mesa - i to u
             somunu, jer oni koji se malo više razumeju, znaju da se originalni
             sarajevski ćevap služi u somunu, a ne u lepinji. Bilo je različitih
             predloga za ime restorana, ali ime naselja je presudilo u njegovom
-            odabiru. Ovo je takav deo grada da svako ko u Subotici kaže da ide u
-            Tokio, tačno se zna u koje naselje ide i mislim da smo to odlično
-            uklopili u ime lokala."
+            odabiru."
           </Container>
           <Container as="p" textAlign="center">
             Menadžer - Dalibor Drača

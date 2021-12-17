@@ -9,7 +9,7 @@ export default function Footer() {
         <Menu.Item as="h3" header>
           RADNO VREME
         </Menu.Item>
-        <Menu.Item>07:00 – 23:00 Svaki dan</Menu.Item>
+        <Menu.Item>Svakog dana 07:00 – 23:00</Menu.Item>
       </Menu>
       <Menu inverted icon="labeled" widths={7} stackable>
         <Menu.Item as="h3" header>

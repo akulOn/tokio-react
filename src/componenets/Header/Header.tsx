@@ -16,9 +16,9 @@ export default function Header() {
         <Menu.Item as={NavLink} to="/" header>
           <Image src="/assets/logo.png" size="small" />
         </Menu.Item>
+        <Menu.Item as={NavLink} to="/menu" content="Menu" />
         <Menu.Item as={NavLink} to="/gallery" name="Gallery" />
         <Menu.Item as={NavLink} to="/about" name="About" />
-        <Menu.Item as={NavLink} to="/menu" content="Menu" />
         <Menu.Item>
           <Dropdown
             placeholder="Select Country"

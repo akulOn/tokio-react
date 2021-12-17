@@ -328,7 +328,7 @@ export default function MenuPage() {
             <Card centered>
               <Image src="/assets/menu/recommendations/biftekAllaTokio.jpg" />
               <Card.Content>
-                <Card.Header>Biftek Al la Tokio</Card.Header>
+                <Card.Header>Biftek a la Tokio</Card.Header>
                 <Card.Description>
                   Biftek u umaku od ruzmarina uz grilovano povrće
                 </Card.Description>
