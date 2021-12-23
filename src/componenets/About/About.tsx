@@ -6,7 +6,7 @@ export default function About() {
   const [loaded, setLoaded] = useState(false);
 
   return (
-    <Grid stackable verticalAlign="middle">
+    <Grid stackable verticalAlign="middle" style={{ marginBottom: "0.5em" }}>
       <Grid.Row columns={1}>
         <Grid.Column className="imageText">
           <Image

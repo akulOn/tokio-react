@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Header />
-      <Container style={{ marginTop: "3em" }}>
+      <Container style={{ marginTop: "5em" }}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/gallery" element={<Gallery />} />

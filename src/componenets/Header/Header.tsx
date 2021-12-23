@@ -8,6 +8,7 @@ import {
   Grid,
   Button,
   Transition,
+  Icon,
 } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
 import { countryOptions } from "../data/countryOptions";
@@ -21,7 +22,8 @@ export default observer(function Header() {
   return (
     <Grid>
       <Grid.Row only="computer tablet">
-        <Menu fixed="top" widths={5} inverted>
+        <Menu fixed="top" widths={7} inverted>
+          <Menu.Item></Menu.Item>
           <Menu.Item
             as={NavLink}
             to="/"
@@ -44,17 +46,22 @@ export default observer(function Header() {
               }}
             />
           </Menu.Item>
+          <Menu.Item></Menu.Item>
         </Menu>
       </Grid.Row>
       <Grid.Row only="mobile">
         <Grid.Column>
-          <Menu fixed="top" inverted>
+          <Menu fixed="top" inverted widths={3}>
             <Menu.Item>
               <Button
                 inverted
                 icon="content"
                 onClick={() => setVisible(!visible)}
               />
+            </Menu.Item>
+            <Menu.Item>Tokio BBQ</Menu.Item>
+            <Menu.Item>
+              <Icon name="food" />
             </Menu.Item>
           </Menu>
         </Grid.Column>
