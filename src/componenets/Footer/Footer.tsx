@@ -1,17 +1,19 @@
 import React from "react";
 import { Icon, Menu } from "semantic-ui-react";
+import { useStore } from "../../stores/store";
 import "./footer.css";
 
 export default function Footer() {
+  const { mainStore } = useStore();
+  const { selcetedLanguage, getHeaderData } = mainStore;
+
   return (
     <>
-      <Menu inverted widths={2} stackable>
+      <Menu inverted icon="labeled" widths={9} stackable>
         <Menu.Item as="h3" header>
           RADNO VREME
         </Menu.Item>
         <Menu.Item>Svakog dana 07:00 – 23:00</Menu.Item>
-      </Menu>
-      <Menu inverted icon="labeled" widths={7} stackable>
         <Menu.Item as="h3" header>
           Kontakt:
         </Menu.Item>

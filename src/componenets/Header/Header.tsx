@@ -1,37 +1,101 @@
-import React from "react";
+import React, { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
-import { Menu, Image, Container, Dropdown } from "semantic-ui-react";
+import {
+  Menu,
+  Dropdown,
+  DropdownProps,
+  Grid,
+  Button,
+  Transition,
+} from "semantic-ui-react";
+import { useStore } from "../../stores/store";
+import { countryOptions } from "../data/countryOptions";
 import "./header.css";
 
 export default function Header() {
-  const countryOptions = [
-    { key: "rs", value: "rs", flag: "rs", text: "Serbia" },
-    { key: "gb", value: "gb", flag: "gb", text: "United Kingdom" },
-    { key: "hu", value: "hu", flag: "hu", text: "Hungary" },
-  ];
+  const { mainStore } = useStore();
+  const { selcetedLanguage, setLanguage, getHeaderData } = mainStore;
+  const [visible, setVisible] = useState(false);
+  const [headerData, setHeaderData] = useState(getHeaderData());
+
+  function handleLanguageChange(e: SyntheticEvent, data: DropdownProps) {
+    const { value } = data as { value: number };
+    setLanguage(value);
+    setHeaderData(getHeaderData());
+  }
+
+  const dropDown = (
+    <Dropdown
+      inline
+      options={countryOptions}
+      defaultValue={
+        countryOptions.find((x) => x.value === selcetedLanguage)?.value
+      }
+      onChange={handleLanguageChange}
+    />
+  );
 
   return (
-    <Menu fixed="top" widths={5} inverted>
-      <Container>
-        <Menu.Item as={NavLink} to="/" header>
-          <Image
-            src={`${process.env.PUBLIC_URL}/assets/logo.png`}
-            size="small"
-          />
-        </Menu.Item>
-        <Menu.Item as={NavLink} to="/menu" content="Menu" />
-        <Menu.Item as={NavLink} to="/gallery" name="Gallery" />
-        <Menu.Item as={NavLink} to="/about" name="About" />
-        <Menu.Item>
-          <Dropdown
-            placeholder="Select Country"
-            selection
-            fluid
-            options={countryOptions}
-            defaultValue={countryOptions[0].value}
-          />
-        </Menu.Item>
-      </Container>
-    </Menu>
+    <Grid>
+      <Grid.Row only="computer tablet">
+        <Menu fixed="top" widths={5} inverted>
+          <Menu.Item
+            as={NavLink}
+            to="/"
+            content={headerData![0]}
+            header
+          ></Menu.Item>
+          <Menu.Item as={NavLink} to="/menu" content={headerData![1]} />
+          <Menu.Item as={NavLink} to="/gallery" name={headerData![2]} />
+          <Menu.Item as={NavLink} to="/about" name={headerData![3]} />
+          <Menu.Item>{dropDown}</Menu.Item>
+        </Menu>
+      </Grid.Row>
+      <Grid.Row only="mobile">
+        <Grid.Column>
+          <Menu fixed="top" inverted>
+            <Menu.Item>
+              <Button
+                inverted
+                icon="content"
+                onClick={() => setVisible(!visible)}
+              />
+            </Menu.Item>
+          </Menu>
+        </Grid.Column>
+        <Grid.Column>
+          <Transition visible={visible} animation="fade right" duration={500}>
+            <Menu inverted vertical className="popUpMenu">
+              <Menu.Item
+                as={NavLink}
+                to="/"
+                content={headerData![0]}
+                header
+                onClick={() => setVisible(!visible)}
+              ></Menu.Item>
+              <Menu.Item
+                as={NavLink}
+                to="/menu"
+                content={headerData![1]}
+                onClick={() => setVisible(!visible)}
+              />
+              <Menu.Item
+                as={NavLink}
+                to="/gallery"
+                name={headerData![2]}
+                onClick={() => setVisible(!visible)}
+              />
+              <Menu.Item
+                as={NavLink}
+                to="/about"
+                name={headerData![3]}
+                onClick={() => setVisible(!visible)}
+              />
+              <Menu.Item>{dropDown}</Menu.Item>
+            </Menu>
+          </Transition>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   );
 }

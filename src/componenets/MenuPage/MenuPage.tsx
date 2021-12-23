@@ -225,7 +225,11 @@ export default function MenuPage() {
       >
         <Modal.Header>Sarajevski cevapi combo</Modal.Header>
         <Modal.Content image>
-          <Image size="medium" src={openedImage} wrapped />
+          <Image
+            size="medium"
+            src={process.env.PUBLIC_URL + openedImage}
+            wrapped
+          />
           <Modal.Description>
             <p>
               10 cevapa sa kajmakom, somun, pekarski pomfrit i zelena salata

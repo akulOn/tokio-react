@@ -1,3 +1,10 @@
 .ui.container {
   font-size: larger;
 }
+
+.popUpMenu {
+  position: absolute;
+  left: 0%;
+  top: 3.5em;
+  z-index: 1;
+}
