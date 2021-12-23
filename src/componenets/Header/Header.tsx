@@ -1,3 +1,4 @@
+import { observer } from "mobx-react-lite";
 import React, { SyntheticEvent, useState } from "react";
 import { NavLink } from "react-router-dom";
 import {
@@ -12,28 +13,10 @@ import { useStore } from "../../stores/store";
 import { countryOptions } from "../data/countryOptions";
 import "./header.css";
 
-export default function Header() {
+export default observer(function Header() {
   const { mainStore } = useStore();
-  const { selcetedLanguage, setLanguage, getHeaderData } = mainStore;
+  const { selcetedLanguage, setLanguage, headerData } = mainStore;
   const [visible, setVisible] = useState(false);
-  const [headerData, setHeaderData] = useState(getHeaderData());
-
-  function handleLanguageChange(e: SyntheticEvent, data: DropdownProps) {
-    const { value } = data as { value: number };
-    setLanguage(value);
-    setHeaderData(getHeaderData());
-  }
-
-  const dropDown = (
-    <Dropdown
-      inline
-      options={countryOptions}
-      defaultValue={
-        countryOptions.find((x) => x.value === selcetedLanguage)?.value
-      }
-      onChange={handleLanguageChange}
-    />
-  );
 
   return (
     <Grid>
@@ -48,7 +31,19 @@ export default function Header() {
           <Menu.Item as={NavLink} to="/menu" content={headerData![1]} />
           <Menu.Item as={NavLink} to="/gallery" name={headerData![2]} />
           <Menu.Item as={NavLink} to="/about" name={headerData![3]} />
-          <Menu.Item>{dropDown}</Menu.Item>
+          <Menu.Item>
+            <Dropdown
+              inline
+              options={countryOptions}
+              defaultValue={
+                countryOptions.find((x) => x.value === selcetedLanguage)?.value
+              }
+              onChange={(e: SyntheticEvent, data: DropdownProps) => {
+                const { value } = data as { value: number };
+                setLanguage(value);
+              }}
+            />
+          </Menu.Item>
         </Menu>
       </Grid.Row>
       <Grid.Row only="mobile">
@@ -91,11 +86,25 @@ export default function Header() {
                 name={headerData![3]}
                 onClick={() => setVisible(!visible)}
               />
-              <Menu.Item>{dropDown}</Menu.Item>
+              <Menu.Item>
+                <Dropdown
+                  inline
+                  options={countryOptions}
+                  defaultValue={
+                    countryOptions.find((x) => x.value === selcetedLanguage)
+                      ?.value
+                  }
+                  onChange={(e: SyntheticEvent, data: DropdownProps) => {
+                    const { value } = data as { value: number };
+                    setLanguage(value);
+                    setVisible(!visible);
+                  }}
+                />
+              </Menu.Item>
             </Menu>
           </Transition>
         </Grid.Column>
       </Grid.Row>
     </Grid>
   );
-}
+});

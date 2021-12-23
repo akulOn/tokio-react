@@ -1,21 +1,22 @@
 import React from "react";
 import { Icon, Menu } from "semantic-ui-react";
 import { useStore } from "../../stores/store";
+import { observer } from "mobx-react-lite";
 import "./footer.css";
 
-export default function Footer() {
+export default observer(function Footer() {
   const { mainStore } = useStore();
-  const { selcetedLanguage, getHeaderData } = mainStore;
+  const { footerData } = mainStore;
 
   return (
     <>
-      <Menu inverted icon="labeled" widths={9} stackable>
+      <Menu inverted widths={9} stackable>
         <Menu.Item as="h3" header>
-          RADNO VREME
+          {footerData![0]}
         </Menu.Item>
-        <Menu.Item>Svakog dana 07:00 – 23:00</Menu.Item>
+        <Menu.Item>{`${footerData![1]} 07:00 – 23:00`}</Menu.Item>
         <Menu.Item as="h3" header>
-          Kontakt:
+          {footerData![2]}
         </Menu.Item>
         <Menu.Item
           as="a"
@@ -24,15 +25,15 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icon name="map" />
+          <Icon name="map" size="large" />
           Maksima Gorkog 9-11, 24000 Subotica
         </Menu.Item>
         <Menu.Item as="a" name="phone" href="tel:+38124600610">
-          <Icon name="phone" />
+          <Icon name="phone" size="large" />
           (+381) 24 600 610
         </Menu.Item>
         <Menu.Item as="a" name="phone" href="tel:+381666600610">
-          <Icon name="phone" />
+          <Icon name="phone" size="large" />
           (+381) 66 660 0610
         </Menu.Item>
         <Menu.Item
@@ -42,7 +43,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icon name="mail" />
+          <Icon name="mail" size="large" />
           tokiobbq@gmail.com
         </Menu.Item>
         <Menu.Item
@@ -52,7 +53,7 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icon name="facebook" />
+          <Icon name="facebook" size="large" />
           Tokio BBQ
         </Menu.Item>
         <Menu.Item
@@ -62,10 +63,10 @@ export default function Footer() {
           target="_blank"
           rel="noreferrer noopener"
         >
-          <Icon name="instagram" />
+          <Icon name="instagram" size="large" />
           Tokio BBQ | roštilj & grill
         </Menu.Item>
       </Menu>
     </>
   );
-}
+});
