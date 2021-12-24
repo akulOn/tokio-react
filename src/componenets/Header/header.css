@@ -3,8 +3,5 @@
 }
 
 .popUpMenu {
-  position: absolute;
-  left: 0%;
-  top: 5em;
   z-index: 1;
 }
