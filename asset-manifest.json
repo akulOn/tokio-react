@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/tokio-react/static/css/main.5394a573.chunk.css",
+    "main.js": "/tokio-react/static/js/main.2fc3e83c.chunk.js",
+    "main.js.map": "/tokio-react/static/js/main.2fc3e83c.chunk.js.map",
+    "runtime-main.js": "/tokio-react/static/js/runtime-main.a7674c46.js",
+    "runtime-main.js.map": "/tokio-react/static/js/runtime-main.a7674c46.js.map",
+    "static/css/2.d3d5d8aa.chunk.css": "/tokio-react/static/css/2.d3d5d8aa.chunk.css",
+    "static/js/2.c90332bd.chunk.js": "/tokio-react/static/js/2.c90332bd.chunk.js",
+    "static/js/2.c90332bd.chunk.js.map": "/tokio-react/static/js/2.c90332bd.chunk.js.map",
+    "static/js/3.af951b13.chunk.js": "/tokio-react/static/js/3.af951b13.chunk.js",
+    "static/js/3.af951b13.chunk.js.map": "/tokio-react/static/js/3.af951b13.chunk.js.map",
+    "index.html": "/tokio-react/index.html",
+    "static/css/2.d3d5d8aa.chunk.css.map": "/tokio-react/static/css/2.d3d5d8aa.chunk.css.map",
+    "static/css/main.5394a573.chunk.css.map": "/tokio-react/static/css/main.5394a573.chunk.css.map",
+    "static/js/2.c90332bd.chunk.js.LICENSE.txt": "/tokio-react/static/js/2.c90332bd.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/tokio-react/static/media/outline-icons.ddae9b1b.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a7674c46.js",
+    "static/css/2.d3d5d8aa.chunk.css",
+    "static/js/2.c90332bd.chunk.js",
+    "static/css/main.5394a573.chunk.css",
+    "static/js/main.2fc3e83c.chunk.js"
+  ]
+}
