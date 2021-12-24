@@ -22,8 +22,12 @@ export default observer(function Header() {
   const [visible, setVisible] = useState(false);
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (!(event.target as HTMLElement).className.includes("popUpMenu")) {
-      setVisible(false);
+    try {
+      if (!(event.target as HTMLElement).className.includes("popUpMenu")) {
+        setVisible(false);
+      }
+    } catch (err) {
+      console.log(err);
     }
   };
 

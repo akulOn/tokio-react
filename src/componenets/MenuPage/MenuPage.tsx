@@ -216,14 +216,18 @@ export default function MenuPage() {
   };
 
   return (
-    <>
+    <Container style={{ marginTop: "5em" }}>
       <Modal
         onClose={() => setOpen(false)}
         onOpen={() => setOpen(true)}
         open={open}
         closeIcon
+        basic
+        size="small"
       >
-        <Modal.Header>Sarajevski cevapi combo</Modal.Header>
+        <Modal.Header style={{ textAlign: "center", fontSize: "2.5em" }}>
+          Sarajevski cevapi combo
+        </Modal.Header>
         <Modal.Content image>
           <Image
             size="medium"
@@ -390,6 +394,6 @@ export default function MenuPage() {
           </Grid.Column>
         </Grid.Row>
       </Grid>
-    </>
+    </Container>
   );
 }
