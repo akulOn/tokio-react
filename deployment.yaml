@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  #the Deployment Name
+  name: tokio-react-app
+spec:
+  #the Number of Pods
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tokio-react-app
+  template:
+    metadata:
+      labels:
+        app: tokio-react-app
+    spec:
+      # Container Details
+      containers:
+      - name: tokio-react-app
+        # Docker Image
+        image: lukadraca/tokio:1.0.0
+        ports:
+        #the port on which the app can be reached out inside the container
+        - containerPort: 80
+
+---
+#service 
+apiVersion: v1
+kind: Service
+metadata:
+   #the Serivce Name- it should match with the lable name of the deployment 
+  name: tokio-react-app
+spec:
+  #type of the service
+  type: NodePort
+  selector:
+    app: tokio-react-app
+  ports:
+  - port: 3050
+    targetPort: 3000
+    protocol: TCP
+    nodePort: 31000
