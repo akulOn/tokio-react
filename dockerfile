@@ -3,7 +3,9 @@ FROM node:14 as builder
 WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
-CMD ["npm", "run", "build"]
+
+RUN npm install
+RUN npm run build
 
 # Stage 2: Copy the JS React SPA into the Nginx HTML directory
 FROM bitnami/nginx:latest
