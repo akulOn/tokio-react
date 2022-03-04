@@ -1,23 +1,12 @@
-# pull official base image
-FROM node:13.12.0-alpine
-
-# set working directory
-WORKDIR /app
-
-# add `/app/node_modules/.bin` to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
-# install app dependencies
-# copies package.json and package-lock.json to Docker environment
-# install app dependencies
+# Stage 1: Use yarn to build the app
+FROM node:14 as builder
+WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
-# Installs all node packages
-RUN npm install --silent
-RUN npm install react-scripts@3.4.1 -g --silent
+RUN npm run build
 
-# Copies everything over to Docker environment
-COPY . ./
+# Stage 2: Copy the JS React SPA into the Nginx HTML directory
+FROM bitnami/nginx:latest
+COPY --from=builder /usr/src/app/build /app
 EXPOSE 8080
-# start app
-CMD ["npm", "start"]
+CMD ["nginx", "-g", "daemon off;"]
