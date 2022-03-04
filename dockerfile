@@ -1,6 +1,6 @@
 # Stage 1: Use yarn to build the app
 FROM node:14 as builder
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY package.json ./
 COPY package-lock.json ./
 COPY ./ ./
